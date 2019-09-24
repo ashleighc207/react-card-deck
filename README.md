@@ -1,6 +1,6 @@
 # React Bootcamp Project #10
 
-### React - Color Boxes - State Patterns
+### React - Card Deck - Lifecycle Methods
 
 ## Description
 
@@ -8,7 +8,7 @@ This is a simple web app for calling an api to return a card from a deck of 52 c
 
 - See the site live here: https://ashleighc207.github.io/react-card-deck/
 
-<!-- <img src="example.png" alt="Example image" width="350" align="center"/> -->
+<img src="example.png" alt="Example image" width="350" align="center"/>
 
 ## How to Launch the App
 
