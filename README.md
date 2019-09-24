@@ -6,6 +6,8 @@
 
 This is a simple web app for calling an api to return a card from a deck of 52 cards, demonstrating lifecycle components.
 
+- See the site live here: https://ashleighc207.github.io/react-card-deck/
+
 <!-- <img src="example.png" alt="Example image" width="350" align="center"/> -->
 
 ## How to Launch the App
@@ -21,6 +23,7 @@ Download or clone this repo to your machine
 - Google Fonts - Raleway (400, 500)
 - uuid
 - axios
+- gh-pages
 
 ## How to Use
 
