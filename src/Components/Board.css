@@ -1,10 +1,11 @@
 .Board {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: column;
   max-width: 800px;
   margin: 0 auto;
+  min-height: 240px;
 }
 .Board--button {
   display: block;
@@ -14,4 +15,26 @@
   display: flex;
   justify-content: center;
   width: 100%;
+}
+.Board--button {
+  padding: 20px 45px;
+  border-radius: 30px;
+  background: #424242;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 50px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  box-shadow: 0 1px 1px rgba(33, 33, 33, 0.12), 0 2px 2px rgba(33, 33, 33, 0.12),
+    0 4px 4px rgba(33, 33, 33, 0.12), 0 8px 8px rgba(33, 33, 33, 0.12),
+    0 16px 16px rgba(33, 33, 33, 0.12);
+}
+
+.Board--text {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 800;
 }

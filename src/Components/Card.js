@@ -12,7 +12,7 @@ class Card extends Component {
         className="Card"
         src={this.props.image}
         style={{
-          transform: `translateX(${this.props.x}px) translateY(${this.props.y}px)`
+          transform: `translateX(${this.props.x}px) translateY(${this.props.y}px) rotate(${this.props.rotate}deg)`
         }}
       />
     );
