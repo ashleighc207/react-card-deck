@@ -1,0 +1,17 @@
+.Board {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.Board--button {
+  display: block;
+}
+.Board--card_container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}

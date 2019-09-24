@@ -2,11 +2,19 @@ import React, { Component } from "react";
 import "./Card.css";
 
 class Card extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
-      <div>
-        <h1>Card</h1>
-      </div>
+      <img
+        className="Card"
+        src={this.props.image}
+        style={{
+          transform: `translateX(${this.props.x}px) translateY(${this.props.y}px)`
+        }}
+      />
     );
   }
 }
