@@ -19,37 +19,49 @@ class Board extends Component {
       this.setState({ id: response.data.deck_id });
     });
   }
-  getNewCard(evt) {
+  async getNewCard(evt) {
     evt.preventDefault();
     const url = `https://deckofcardsapi.com/api/deck/${this.state.id}/draw/`;
-
-    axios.get(url).then(response => {
-      let imageUrl = response.data.cards[0].image,
-        cardId = response.data.cards[0].code,
-        altTxt = `${response.data.cards[0].value} ${response.data.cards[0].suit}`,
-        rotate;
-      if (Math.floor(100 * Math.random()) <= 50) {
-        rotate = Math.random() * 30 - 5;
-      } else {
-        rotate = `-${Math.random() * 30 - 5}`;
-      }
-      let x = Math.floor(50 * Math.random());
-      let y = Math.floor(50 * Math.random());
-      let newCard = {
-        img: imageUrl,
-        x: x,
-        y: y,
-        rotate: rotate,
-        id: cardId,
-        altText: altTxt
-      };
-      this.setState(prevState => {
-        return {
-          deck: [...this.state.deck, newCard],
-          remainingCards: response.data.remaining
+    try {
+      await axios.get(url).then(response => {
+        if (response.data.remaining === 0) {
+          let err = new Error("No cards remaining!");
+          err.name = "Nothing Returned";
+          throw err;
+        }
+        let imageUrl = response.data.cards[0].image,
+          cardId = response.data.cards[0].code,
+          altTxt = `${response.data.cards[0].value} ${response.data.cards[0].suit}`,
+          rotate;
+        if (Math.floor(100 * Math.random()) <= 50) {
+          rotate = Math.random() * 30 - 5;
+        } else {
+          rotate = `-${Math.random() * 30 - 5}`;
+        }
+        let x = Math.floor(50 * Math.random());
+        let y = Math.floor(50 * Math.random());
+        let newCard = {
+          img: imageUrl,
+          x: x,
+          y: y,
+          rotate: rotate,
+          id: cardId,
+          altText: altTxt
         };
+        this.setState(prevState => {
+          return {
+            deck: [...this.state.deck, newCard],
+            remainingCards: response.data.remaining
+          };
+        });
       });
-    });
+    } catch (err) {
+      console.log(err, err.name);
+      if (err.name === "Nothing Returned") {
+        this.setState({ remainingCards: 0 });
+        alert(err);
+      }
+    }
   }
 
   render() {
